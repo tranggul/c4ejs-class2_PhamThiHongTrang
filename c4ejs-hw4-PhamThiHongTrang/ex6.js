@@ -11,7 +11,7 @@ while(true){
 alert('Hi there, this is dev dictionary');
 let keyword1 = prompt('enter a keyword');
 if(dictionary2[keyword1] == undefined){
-    let explanation = prompt('we  could not find your word :  ' + `${keyword1}` + 'leave your explanation');
+    let explanation = prompt('we  could not find your word :  ' + `${keyword1} ` + 'leave your explanation');
     dictionary2.dev = explanation;
     alert('done');
 }else{
