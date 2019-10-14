@@ -64,7 +64,9 @@ const cmds = [
         width: 15,
     },
 ]
+clear();
 for(let i = 0; i < cmds.length;i++){
+  
    home();
     let a = cmds[i];
     if(a.shape == 'rect'){
@@ -81,17 +83,17 @@ for(let i = 0; i < cmds.length;i++){
         fd(a.width);
         rt(90);
       }
-    }else if(a.shape == 'square'){
-      
+    }else{
+      penup();
       rt(90);
-       fd(a.x);
+      fd(a.x);
       lt(90);
       fd(a.y);
-     
-      for(let h = 0; h < 4; h++){
-        
+      pendown();
+      for(let i = 0; i < 4; i++){
         fd(a.width);
         rt(90);
       }
-}
+      
+    }
 }
