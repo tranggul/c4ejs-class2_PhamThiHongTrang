@@ -4,7 +4,7 @@ let products3  = [
     {name : 'IPhone X',brand : 'Apple' ,price: 21490 , color : 'Gray', category : 'Phone'},
     {name : 'Samsung Galaxy A9',  brand : 'Samsung',price: 8490,  color : 'Blue',category : 'Phone'},
 ];
-];
+
 let b = prompt('Enter your category');
 let input = b.toLowerCase();
 for(let i = 0 ; i < products3.length; i ++){
