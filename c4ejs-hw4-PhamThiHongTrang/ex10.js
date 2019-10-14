@@ -1,18 +1,18 @@
-let products  = [
-        {name : 'Xiaomi portablecharger 20000mah', price: 428, brand : 'Xiaomi', category : 'charger', color : 'white'},
-        {name : 'VSmart Active 1', price: 5487 , brand : 'VSmart', category : 'Phone', color : 'Black'},
-        {name : 'IPhone X', price: 21490, brand : 'Apple', category : 'Phone', color : 'Gray'},
-        {name : 'Samsung Galaxy A9', price: 8490, brand : 'Samsung', category : 'Phone', color : 'Blue'},
-    ];
-    for(let i = 0 ; i < products.length; i ++){
-        let c = products[i];
+let products4  = [
+    {name : 'Xiaomi portablecharger 20000mah', brand : 'Xiaomi',price: 428 , color : 'white', category : 'Charger'},
+    {name : 'VSmart Active 1', brand : 'VSmart' ,price: 5487 ,color : 'Black' , category : 'Phone'},
+    {name : 'IPhone X',brand : 'Apple' ,price: 21490 , color : 'Gray', category : 'Phone'},
+    {name : 'Samsung Galaxy A9',  brand : 'Samsung',price: 8490,  color : 'Blue',category : 'Phone'},
+];
+    for(let i = 0 ; i < products4.length; i ++){
+        let c = products4[i];
         let {name : res1, price: res2} = c;
         console.log(`#${i+1}.` + ` ${res1}\n\t${res2} `);
     }
-    let position = prompt('Enter a position');
-    for(let i = 0 ; i < products.length; i++){
+    let position = prompt('Enter product position');
+    for(let i = 0 ; i < products4.length; i++){
         if(i == position-1){
-           let d = products[i];
+           let d = products4[i];
            for(let y in d){
                console.log(`${y} :  ${d[y]}`);
            }

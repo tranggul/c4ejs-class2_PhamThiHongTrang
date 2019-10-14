@@ -945,15 +945,38 @@ for(let i = 0; i <jobData.hits[0].benefits.length ;i++){
 }
 console.log(stringt);
 //14.6
-console.log('First job title:' +`\r\n${jobData.hits[0].jobTitle}`);
-let stringh = ' benefit:';
-for(let j = 0; j< jobData.hits.length; j++){
-for(let i = 0; i <jobData.hits[j].benefits.length ;i++){
-    let dff = jobData.hits[i].benefits[i];
-
-
-   stringh+=`\r\n-${dff.benefitValue}`;
-}
-}
-console.log(stringh);
+for(let i = 0; i< jobData.hits.length; i++){
+    let ds = jobData.hits[i];
+    let str = 'Benifits:'
+     str +=`\r\n${jobData.hits[i].jobTitle}`;
+    for(let j =0;j<jobData.hits[i].benefits.length;j++){
+let c = jobData.hits[i].benefits[j];
+let {benefitValue: ress} =c;
+        str+=`\r\n-${ress}`;
+    }
+    str+=`\r\n----------------------------------`;
+console.log(str);
    
+}
+//14.7
+for(let i = 0; i< jobData.hits.length; i++){
+        let ds = jobData.hits[i];
+         let l= `\r\nTitle:${jobData.hits[i].jobTitle}`;
+         let r = `\r\nSalary:${jobData.hits[i].jobSalary}$`;
+         let p = `\r\nLocations:${jobData.hits[i].locations}`;
+         let str1 = `\r\nBenifits:`;
+        for(let j =0;j<jobData.hits[i].benefits.length;j++){
+    let c = jobData.hits[i].benefits[j];
+    let {benefitValue: ress} =c;
+            str1 +=`\r\n-${ress}`;
+        }
+        let o = jobData.hits[i].skills;
+        let sk = `\r\nSkills:`;
+        for(let f = 0; f< o.length;f++){
+            sk+=`\r\n-${o[f]}`
+        }
+        str1+=`\r\n----------------------------------`;
+    console.log(l+r+p+sk+str1);
+       
+    }
+

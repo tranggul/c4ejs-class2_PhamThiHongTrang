@@ -930,3 +930,11 @@ const jobSearch = {
     ]
 }
 console.log(jobSearch);
+//3.1
+//object
+//3.2
+//array
+//3.3
+//we have to use destructuring object to find the job’s title, locations,
+// salary, benefits, skills and requirements
+//To have obvious views, we will do this in ex14

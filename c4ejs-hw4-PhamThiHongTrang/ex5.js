@@ -7,10 +7,12 @@ let dictionary1 = {
     ux: 'UI means User Interface, UX mean User Experience, are the process to define how your products looks and feels'
 
 };
+
 alert('Hi there, this is dev dictionary');
 let keyword = prompt('enter a keyword');
-if(dictionary1['keyword'] == undefined){
+if(dictionary1[keyword] == undefined){
     alert('we  could not find your word:  ' + `${keyword}`);
 }else{
     alert( `${keyword} \n ${dictionary1[keyword]}`);
 }
+
