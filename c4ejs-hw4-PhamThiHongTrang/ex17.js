@@ -20,4 +20,3 @@ const rect = {
       fd(rect.width);
       rt(90);
     }
-    
