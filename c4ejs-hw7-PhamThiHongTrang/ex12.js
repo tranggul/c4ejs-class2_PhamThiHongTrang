@@ -21,22 +21,23 @@ function onClickBtn(){
      console.log(items);
 }
 for(let i = 0; i < items.length; i++){
-    x.insertAdjacentHTML("beforeend", `<li class = 'delete'>
+    x.insertAdjacentHTML("beforeend", `<li id = 'delete'>
     <span>${items[i]}</span>   
-    <button class = 're'>remove</button>
+    <button id = "re `+${i}`">remove</button>
     </li>`);
-    let r = document.getElementsByClassName('re');
-    r[i].addEventListener('click', function(){
+    let r = document.getElementById('delete');
+    delete[i].addEventListener('click', function(){
         console.log('remove');
         console.log(`Item: ${i}`);
         items.splice(i, 1);
         console.log(items);
     })
-    let s = document.getElementsByClassName('delete');
-    s[i].addEventListener('click', ()=>{
-        s[i].remove();
-        console.log(x);
-    })
+    // let s = document.getElementsByClassName('delete');
+    // s[i].addEventListener('click', ()=>{
+    //     s[i].remove();
+    //     console.log(x);
+    // })
 
-}
+    }
+
 
