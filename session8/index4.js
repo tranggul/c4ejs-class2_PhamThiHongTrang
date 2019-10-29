@@ -15,7 +15,7 @@ function h() {
     <td class="value">${y.task}</td>
     <td class="value">${y.time_spent}</td>
     
-    <td class = 'value' ><button onClick = 'deleteRow(this)' class = 'bc'>x</button><button class= 'update'>U</button></td>
+    <td class = 'value' ><button onClick = 'deleteRow(this)' class = 'bc'>x</button><button onClick = 'updateRow(this)' class= 'update'>U</button></td>
    
     </tr>`);
     }
@@ -40,7 +40,7 @@ function onbtn() {
     <td class="value">${object.project}</td>
     <td class="value">${object.task}</td>
     <td class="value">${object.time_spent}</td>
-    <td class ='value'><button onClick = 'deleteRow(this)' class = 'bc'>x</button><button class = 'update'>U</button></td>
+    <td class ='value'><button onClick = 'deleteRow(this)' class = 'bc'>x</button><button onClick = 'updateRow(this)' class = 'update'>U</button></td>
     </tr>`);
     z.value = '';
     d.value = '';
@@ -60,34 +60,62 @@ rr.addEventListener('click', clear);
 
 let up = document.getElementsByClassName('update');
 
-for (let i = 0; i < up.length; i++) {
-    let up_clicked = up[i];
-    up_clicked.addEventListener('click', () => {
-        l.remove();
-        rr.insertAdjacentHTML('beforebegin', `<button id = 'u'>Update</button>`);
-        z.value = data[i].project;
-        d.value = data[i].task;
-        e.value = data[i].time_spent;
-        console.log(data);
-        let tr = document.getElementById('u');
-        console.log(tr);
-        function update1() {
-            data[i].project = z.value;
-            data[i].task = d.value;
-            data[i].time_spent = e.value;
-            let ttt = document.getElementById('table');
-            for (let i = ttt.rows.length - 1; i > 0; i--) {
-                ttt.deleteRow(i);
-            }
-            h();
-        }
-        tr.addEventListener('click', update1);
+// for (let i = 0; i < up.length; i++) {
+//     let up_clicked = up[i];
+//     up_clicked.addEventListener('click', () => {
+//         l.remove();
+//         rr.insertAdjacentHTML('beforebegin', `<button id = 'u'>Update</button>`);
+//         z.value = data[i].project;
+//         d.value = data[i].task;
+//         e.value = data[i].time_spent;
+//         console.log(data);
+//         let tr = document.getElementById('u');
+//         console.log(tr);
+//         function update1() {
+//             data[i].project = z.value;
+//             data[i].task = d.value;
+//             data[i].time_spent = e.value;
+//             let ttt = document.getElementById('table');
+//             for (let i = ttt.rows.length - 1; i > 0; i--) {
+//                 ttt.deleteRow(i);
+//             }
+//             h();
+//         }
+//         tr.addEventListener('click', update1);
 
-    })
+//     })
+// }
+let dd;
+function updateRow(row){
+     dd = row.parentNode.parentNode.rowIndex;
+    console.log(dd);
+    let k = document.getElementById('u');
+   if(k){
+
+   }else{
+    rr.insertAdjacentHTML('beforebegin', `<button  id = 'u'>Update</button>`);
+    }
+    z.value = data[dd-1].project;
+        d.value = data[dd-1].task;
+        e.value = data[dd-1].time_spent;
+        function update1() {
+                        data[dd-1].project = z.value;
+                        data[dd-1].task = d.value;
+                        data[dd-1].time_spent = e.value;
+                        let ttt = document.getElementById('table');
+                        for (let i = ttt.rows.length - 1; i > 0; i--) {
+                            ttt.deleteRow(i);
+                        }
+                        h();
+                    }
+                    let tr = document.getElementById('u');
+                    tr.addEventListener('click', update1);
+
 }
 //clear
 function deleteRow(row){
 var d = row.parentNode.parentNode.rowIndex;
+console.log(d);
 document.getElementById('table').deleteRow(d);
 }
 // let j = document.getElementsByClassName('bc');
