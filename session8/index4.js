@@ -10,12 +10,12 @@ console.log(x);
 function h() {
     for (let i = 0; i < data.length; i++) {
         let y = data[i];
-        x.insertAdjacentHTML('beforeend', `<tr>
+        x.insertAdjacentHTML('beforeend', `<tr id =' ${i}'>
     <td class="value">${y.project}</td>
     <td class="value">${y.task}</td>
     <td class="value">${y.time_spent}</td>
     
-    <td class = 'value' ><button class = 'bc'>x</button><button class= 'update'>U</button></td>
+    <td class = 'value' ><button onClick = 'deleteRow(this)' class = 'bc'>x</button><button class= 'update'>U</button></td>
    
     </tr>`);
     }
@@ -40,15 +40,12 @@ function onbtn() {
     <td class="value">${object.project}</td>
     <td class="value">${object.task}</td>
     <td class="value">${object.time_spent}</td>
-    <td class ='value'><button  class = 'bc'>x</button><button class = 'update'>U</button></td>
-    
+    <td class ='value'><button onClick = 'deleteRow(this)' class = 'bc'>x</button><button class = 'update'>U</button></td>
     </tr>`);
     z.value = '';
     d.value = '';
     e.value = '';
 }
-
-
 
 // addEventListener cho add
 let l = document.getElementById('add');
@@ -61,29 +58,23 @@ function clear(){
 let rr = document.getElementById('clear');
 rr.addEventListener('click', clear);
 
-
-
-
-
 let up = document.getElementsByClassName('update');
 
 for (let i = 0; i < up.length; i++) {
     let up_clicked = up[i];
     up_clicked.addEventListener('click', () => {
         l.remove();
-        
         rr.insertAdjacentHTML('beforebegin', `<button id = 'u'>Update</button>`);
         z.value = data[i].project;
         d.value = data[i].task;
         e.value = data[i].time_spent;
-
         console.log(data);
         let tr = document.getElementById('u');
         console.log(tr);
         function update1() {
             data[i].project = z.value;
             data[i].task = d.value;
-            data[i].ptime_spent = e.value;
+            data[i].time_spent = e.value;
             let ttt = document.getElementById('table');
             for (let i = ttt.rows.length - 1; i > 0; i--) {
                 ttt.deleteRow(i);
@@ -93,25 +84,19 @@ for (let i = 0; i < up.length; i++) {
         tr.addEventListener('click', update1);
 
     })
-
 }
-
-
-
-
 //clear
-
-
-
-let j = document.getElementsByClassName('bc');
-for (let i = 0; i < j.length; i++) {
-    var x_clicked = j[i];
-    x_clicked.addEventListener('click', () => {
-        
-        let s = x_clicked.parentNode;
-        let m = s.parentNode;
-        m.parentNode.removeChild(m);
-    
-
-})
+function deleteRow(row){
+var d = row.parentNode.parentNode.rowIndex;
+document.getElementById('table').deleteRow(d);
 }
+// let j = document.getElementsByClassName('bc');
+// for (let i = 0; i < j.length; i++) {
+//     var x_clicked = j[i];
+//     x_clicked.addEventListener('click', () => {
+        
+//         let s = x_clicked.parentNode;
+//         let m = s.parentNode;
+//         m.parentNode.removeChild(m);
+// })
+// }
