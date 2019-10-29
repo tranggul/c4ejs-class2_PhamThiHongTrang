@@ -1,0 +1,13 @@
+table, .value, .header, .delete, .btn, .upadate{
+    border: solid 1px;
+   
+}
+table{
+    margin-top: 50px;
+}
+.delete{
+    display:grid;
+}
+.btn{
+    border-radius: 5px;
+}
