@@ -49,8 +49,12 @@ function onbtn() {
 
 // addEventListener cho add
 let l = document.getElementById('add');
+console.log(l);
+console.log(z);
+console.log(d);
+console.log(e);
 l.addEventListener('click', onbtn);
-function clear(){
+function clear() {
     z.value = '';
     d.value = '';
     e.value = '';
@@ -86,43 +90,48 @@ let up = document.getElementsByClassName('update');
 //     })
 // }
 let dd;
-function updateRow(row){
-     dd = row.parentNode.parentNode.rowIndex;
+let gf = document.getElementById('u');
+function updateRow(row) {
+    dd = row.parentNode.parentNode.rowIndex;
     console.log(dd);
     let k = document.getElementById('u');
-   if(k){
+    if (k) {
 
-   }else{
-    rr.insertAdjacentHTML('beforebegin', `<button  id = 'u'>Update</button>`);
+    } else {
+        rr.insertAdjacentHTML('beforebegin', `<button  id = 'u'>Update</button>`);
+        l.remove();
     }
-    z.value = data[dd-1].project;
-        d.value = data[dd-1].task;
-        e.value = data[dd-1].time_spent;
-        function update1() {
-                        data[dd-1].project = z.value;
-                        data[dd-1].task = d.value;
-                        data[dd-1].time_spent = e.value;
-                        let ttt = document.getElementById('table');
-                        for (let i = ttt.rows.length - 1; i > 0; i--) {
-                            ttt.deleteRow(i);
-                        }
-                        h();
-                    }
-                    let tr = document.getElementById('u');
-                    tr.addEventListener('click', update1);
+    z.value = data[dd - 1].project;
+    d.value = data[dd - 1].task;
+    e.value = data[dd - 1].time_spent;
+    function update1() {
+        data[dd - 1].project = z.value;
+        data[dd - 1].task = d.value;
+        data[dd - 1].time_spent = e.value;
+        let ttt = document.getElementById('table');
+        for (let i = ttt.rows.length - 1; i > 0; i--) {
+            ttt.deleteRow(i);
+        }
+        
+        h();
+        
+    }
+    
+    let tr = document.getElementById('u');
+    tr.addEventListener('click', update1);
 
 }
 //clear
-function deleteRow(row){
-var d = row.parentNode.parentNode.rowIndex;
-console.log(d);
-document.getElementById('table').deleteRow(d);
+function deleteRow(row) {
+    var d = row.parentNode.parentNode.rowIndex;
+    console.log(d);
+    document.getElementById('table').deleteRow(d);
 }
 // let j = document.getElementsByClassName('bc');
 // for (let i = 0; i < j.length; i++) {
 //     var x_clicked = j[i];
 //     x_clicked.addEventListener('click', () => {
-        
+
 //         let s = x_clicked.parentNode;
 //         let m = s.parentNode;
 //         m.parentNode.removeChild(m);
